@@ -7,20 +7,36 @@ my $builder = Alien::Base::ModuleBuild->new(
   module_name => 'Acme::Alien::DontPanic',
   license => 'perl',
   configure_requires => {
-    'Alien::Base' => '0.003',
+    'Alien::Base' => '0.005',
     'Module::Build' => 0.38,
+  },
+  test_requires => {
+    'Test::More'    => 0,
   },
   requires => {
     'perl' => '5.8.1',
-    'Alien::Base' => 0,
+    'Alien::Base' => '0.005',
   },
   dist_author => 'Joel A. Berger <joel.a.berger@gmail.com>',
   alien_name => 'dontpanic',
+  alien_isolate_dynamic => 1,
   alien_repository => {
     protocol => 'local',
     location => 'inc',
     pattern  => qr/^dontpanic-([\d\.]+)\.tar\.gz$/,
   },
+  meta_merge => {
+    resources  => {
+      repository => "http://github.com/Perl5-Alien/Alien-Base-Extras",
+      bugtracker => "http://github.com/Perl5-Alien/Alien-Base-Extras/issues",
+      x_MailingList => 'https://groups.google.com/forum/#!forum/perl5-alien',
+    },
+  },  
 );
+
+$builder->add_to_cleanup(
+  'inc/dontpanic',
+);
+
 $builder->create_build_script;
 
