@@ -3,7 +3,7 @@ package Acme::Alien::DontPanic;
 use strict;
 use warnings;
 
-our $VERSION = '0.009';
+our $VERSION = '0.010';
 $VERSION = eval $VERSION;
 
 use parent 'Alien::Base';
@@ -15,19 +15,6 @@ __END__
 =head1 NAME
 
 Acme::Alien::DontPanic - Test Module for Alien::Base
-
-=head1 SYNOPSIS
-
- package Acme::Ford::Prefect;
-
- use strict;
- use warnings;
-
- use Acme::Alien::DontPanic;
-
- print answer() # 42
-
- 1;
 
 =head1 DESCRIPTION
 
